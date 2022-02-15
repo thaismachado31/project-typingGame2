@@ -29,6 +29,34 @@ class Game {
         print()}, 1000);
     }
 
+    // checkRound(wordlist) {
+
+    //     if (this.round < 8) {
+    //         let level1 = wordlist.word3Letters
+    //     };
+    //     if (8 >= this.round <= 15) {
+    //         let level2 = wordlist.word4Letters
+    //     };
+    //     if (16 >= this.round <= 23) {
+    //         let level3 = wordlist.word5Letters
+    //     };
+    //     if (24 >= this.round <= 31) {
+    //         let level4 = wordlist.word6Letters
+    //     };
+    //     if (32 >= this.round <= 39) {
+    //         let level5 = wordlist.word7Letters
+    //     };
+    //     if (40 >= this.round <= 47) {
+    //         let level6 = wordlist.word8Letters
+    //     };
+    //     if (48 >= this.round <= 55) {
+    //         let level7 = wordlist.word9Letters
+    //     };
+    //     if (this.round > 55) {
+    //         let level8 = wordlist.word10Letters
+    //     }; 
+    // }
+
     extraTime() {
         
     }
