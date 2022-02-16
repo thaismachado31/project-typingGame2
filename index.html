@@ -4,31 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martel:wght@600&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Type Away</title>
 </head>
-<body>
-    <h1>TYPE AWAY</h1>
-    <div>
-        <div>
-            <p>You have 30s to type as many words as you can</p>
-            <button id="btnStart" >START TYPING</button>
-            <h2 id="currentWord">type</h2>
-            <input id="typeWord" type="text" placeholder="type away..."> 
-            <p id="message"></p>
+<body class="d-flex justify-content-center w-100 p-3 d-flex flex-column bd-highlight mb-3 text-dark bg-light">
+    <h1 class="d-flex justify-content-center w-auto p-3 bd-highlight m-4">type away</h1>
+    <div class="p-2 bd-highlight">
+        <div class="d-flex justify-content-center flex-column bd-highlight mb-3">
+            <p class="text-center mb-5">you have 30 seconds to type as many words as you can</p>
+            <button class="btn btn-outline-secondary btn-lg p-2 mx-auto" id="btnStart" >start typing</button>
+            <h2 class="text-center my-5" id="currentWord">word</h2>
+            <input class="form-control m-auto text-center" id="typeWord" type="text" placeholder="type away..."> 
+            <p class="text-center text-danger m-3 font-weight-bold" id="message"></p>
         </div>
 
-        <div>
-            <div>
-                <h3 id="time">Time: <span id="timeCounter">0</span></h3>
+        <div class="container mx-auto d-flex justify-content-around m-3">
+            <div class="flex-row ">
+                <div class="col">
+                    <p class="font-weight-bold" id="time">time: <span id="timeCounter">0</span></p>
+                </div>
+                <div class="col">
+                    <p class="font-weight-bold" id="score">score: <span id="scoreCounter">0</span></p>
+                </div>
             </div>
-            <div>
-                <h3 id="score">Score: <span id="scoreCounter">0</span></h3>
-            </div>
-            <div>
-                <h3 id="highScore">Best Score: <span id="highscoreSave">0</span></h3>
-            </div>
-            <div>
-                <button id="btnStartOver">START OVER</button>
+            <div class="flex-row">
+                <div class="col">
+                    <p class="font-weight-bold" id="highScore">best score: <span id="highscoreSave">0</span></p>
+                </div>
+                <div class="col">
+                    <button class="btn btn-light font-weight-bold" id="btnStartOver">start over</button>
+                </div>
             </div>
         </div>
     </div>
@@ -36,5 +45,5 @@
     <script src="./assets/script/game.js"></script>
     <script src="./assets/script/index.js"></script>
 </body>
-<footer>Created by Thaís Machado</footer>
+<footer class="font-italic mt-5">Created by Thaís Machado</footer>
 </html>
