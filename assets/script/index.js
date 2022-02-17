@@ -83,28 +83,28 @@ function checkRound() {
         selectWord(word3Letters)
         return
     };
-    if (i > typingGame.round <= i*2) {
+    if (typingGame.round <= i*2) {
         console.log(typingGame.round)
         selectWord(word4Letters)
         return
     };
-    if (i*2 > typingGame.round <= i*3) {
+    if (typingGame.round <= i*3) {
         selectWord(word5Letters)
         return
     };
-    if (i*3 > typingGame.round <= i*4) {
+    if (typingGame.round <= i*4) {
         selectWord(word6Letters)
         return
     };
-    if (i*4 > typingGame.round <= i*5) {
+    if (typingGame.round <= i*5) {
         selectWord(word7Letters)
         return
     };
-    if (i*5 > typingGame.round <= i*6) {
+    if (typingGame.round <= i*6) {
         selectWord(word8Letters)
         return
     };
-    if (i*6 > typingGame.round <= i*7) {
+    if (typingGame.round <= i*7) {
         selectWord(word9Letters)
         return
     };
