@@ -39,6 +39,8 @@ const btnStartOverElement = document.getElementById('btnStartOver');
 
 const typeWordValue = typeWordInput.value;
 
+const highScore = localStorage.setItem('highscore', 0)
+
 
 function printTime() {
     timeElement.innerText = typingGame.time
@@ -51,31 +53,28 @@ function startGame() {
 }
 
 function selectWord(words) {
-
     const randomSelection = Math.floor(Math.random()* (words.length));
     currentWord = words[randomSelection];
     words.splice(randomSelection, 1);
     currentWordElement.innerText = currentWord
 }
 
-
-// function selecWordSplit() {
-//     let wordArray = currentWord.split('')
-//     for (let i = 0; i< wordArray.length; i++) {
-//         document.createElement('span');
-        
+// function wordByLetter() {
+//     const letters = currentWord.split('')
+//     for (let i=0; i < letters.length; i++ ) {
+//         let letterElement = letters[i]
+//         newLetterSpan = `
+//         <span class="letter" >${letterElement}</span>`
+//         currentWordElement.insertAdjacentHTML('beforeend', newLetterSpan);
 //     }
 // }
 
-function checkByLetter() {
-
-}
-
 function addTime() {
-        if (typingGame.score % 5 === 0) {
-            typingGame.time += 5;};
-        printTime()
-    }
+    if (typingGame.score % 5 === 0) {
+        typingGame.time += 5;
+    };
+    printTime()
+}
 
 function checkRound() {
     let i = 3;
@@ -84,7 +83,6 @@ function checkRound() {
         return
     };
     if (typingGame.round <= i*2) {
-        console.log(typingGame.round)
         selectWord(word4Letters)
         return
     };
@@ -125,6 +123,17 @@ function matchWord() {
         }
 }
 
+// function matchLetter() {
+//     if (currentWordElement.innerText === typeWordInput.value) { 
+//         typingGame.score++;
+//         messageElement.innerText = ''
+//         return true
+//     } else {
+//             messageElement.innerText = 'WRONG'
+//             return false
+//         }
+// }
+
 function nextWord() {
     matchWord();
     typeWordInput.value = '';
@@ -132,6 +141,16 @@ function nextWord() {
     typingGame.round++;
     checkEndGame();
     addTime()
+    // setHighScore()
+}
+
+function resetGame() {
+    typingGame.restart();
+    typeWordInput.value = 'type away...';
+    currentWordElement.innerText = '';
+    scoreElement.innerText = typingGame.score;
+    timeElement.innerText = typingGame.time;
+    highScoreElement.innerText = localStorage.getItem('highscore')
 }
 
 
@@ -140,32 +159,33 @@ function checkEndGame() {
         typeWordInput.removeEventListener('keypress', (e) => {if (e.key === 'Enter') {
             nextWord();
         }})
-        highScore()
     }
+    setHighScore()
 }
 
-function highScore() {
-    let highestScore = localStorage.setItem('highscore', 0)
-    if (typingGame.score > highestScore) {
+function setHighScore() { 
+    if (typingGame.score > localStorage.getItem('highscore')) {
         localStorage.setItem('highscore', typingGame.score)
     }
-
-    highScoreElement.innerText = localStorage.getItem('highscore')
+    
 }
 
 btnStartElement.addEventListener('click', () => {
     startGame();
     checkRound()
-    // selectWordList(wordList);
 })
 
-typeWordInput.addEventListener('keypress', (e) => {if (e.key === 'Enter') {
-    if (typingGame.gamePlaying && typingGame.time > 0) {
-        nextWord();
-        checkRound();
+typeWordInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+    
+        if (typingGame.gamePlaying && typingGame.time > 0) {
+            nextWord();
+            checkRound();
+        }
     }
-}})
+})
 
 btnStartOverElement.addEventListener('click', () => { 
-    window.location.reload();
+    // window.location.reload();
+    resetGame()
 })
