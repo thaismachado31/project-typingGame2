@@ -32,7 +32,7 @@ class Game {
 
 
     restart () {
-        this.time = 30;
+        this.time = 0;
         this.round = 0;
         this.score = 0;
         this.gamePlaying = false;

@@ -47,6 +47,7 @@ function printTime() {
 }
 
 function startGame() {
+    typingGame.time = 30
     printTime()
     typingGame.start(printTime);
     typingGame.round++;
