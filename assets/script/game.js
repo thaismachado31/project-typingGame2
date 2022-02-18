@@ -17,25 +17,30 @@ class Game {
         this.score = 0;
         this.round = 0;
         this.gamePlaying;
+        this.setTime;
     }
 
     start(print) {
-       setInterval(() => {
-           if (this.time > 0) {
-               this.time--;
+        console.log('start')
+        this.setTime = setInterval(() => {
+            if (this.time > 0) {
+                this.time-=1;
             } else if (time === 0){
-            this.gamePlaying = false;
-         };
-        print()}, 1000);
+                 this.gamePlaying = false;
+            };
+            print()
+        }, 1000);
         this.gamePlaying = true;
     }
 
 
     restart () {
+        
         this.time = 0;
         this.round = 0;
         this.score = 0;
         this.gamePlaying = false;
+        clearInterval(this.setTime)
     }
 
 }

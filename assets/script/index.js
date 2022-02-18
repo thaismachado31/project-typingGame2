@@ -47,10 +47,15 @@ function printTime() {
 }
 
 function startGame() {
+    console.log('startGame')
     typingGame.time = 30
     printTime()
     typingGame.start(printTime);
+    console.log(printTime)
     typingGame.round++;
+    typeWordInput.focus()
+    console.log(typingGame.time);
+    return
 }
 
 function selectWord(words) {
@@ -146,8 +151,9 @@ function nextWord() {
 }
 
 function resetGame() {
+    console.log('resetGame')
     typingGame.restart();
-    typeWordInput.value = 'type away...';
+    typeWordInput.value = '';
     currentWordElement.innerText = '';
     scoreElement.innerText = typingGame.score;
     timeElement.innerText = typingGame.time;
@@ -173,7 +179,7 @@ function setHighScore() {
 
 btnStartElement.addEventListener('click', () => {
     startGame();
-    checkRound()
+    checkRound();
 })
 
 typeWordInput.addEventListener('keypress', (e) => {
