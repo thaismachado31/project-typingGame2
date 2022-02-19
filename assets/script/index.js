@@ -50,11 +50,9 @@ function startGame() {
     console.log('startGame')
     typingGame.time = 30
     printTime()
-    typingGame.start(printTime);
-    console.log(printTime)
+    typingGame.start(printTime, checkEndGame);
     typingGame.round++;
-    typeWordInput.focus()
-    console.log(typingGame.time);
+    typeWordInput.focus();
     return
 }
 
@@ -62,18 +60,27 @@ function selectWord(words) {
     const randomSelection = Math.floor(Math.random()* (words.length));
     currentWord = words[randomSelection];
     words.splice(randomSelection, 1);
-    currentWordElement.innerText = currentWord
+    // currentWordElement.innerText = currentWord
+    wordByLetter(currentWord)
 }
 
-// function wordByLetter() {
-//     const letters = currentWord.split('')
-//     for (let i=0; i < letters.length; i++ ) {
-//         let letterElement = letters[i]
-//         newLetterSpan = `
-//         <span class="letter" >${letterElement}</span>`
-//         currentWordElement.insertAdjacentHTML('beforeend', newLetterSpan);
-//     }
-// }
+function wordByLetter(eachWord) {
+    const letters = currentWord.split('')
+    for (let i=0; i < letters.length; i++ ) {
+        let letterElement = letters[i]
+        let classSpan = i
+        newLetterSpan = `<span class="${classSpan}" >${letterElement}</span>`
+        currentWordElement.insertAdjacentHTML('beforeend', newLetterSpan);
+    }
+}
+
+function removeWordSpan() {
+    currentWordElement.innerHTML = ''
+    // let firstLetterSpan = currentWordElement.firstChild
+    // while (firstLetterSpan) {
+    //     currentWordElement.removeChild(firstLetterSpan)
+    // }
+}
 
 function addTime() {
     if (typingGame.score % 5 === 0) {
@@ -129,25 +136,27 @@ function matchWord() {
         }
 }
 
-// function matchLetter() {
-//     if (currentWordElement.innerText === typeWordInput.value) { 
-//         typingGame.score++;
-//         messageElement.innerText = ''
-//         return true
-//     } else {
-//             messageElement.innerText = 'WRONG'
-//             return false
-//         }
-// }
+function matchLetter(s) {
+    let letterSpanClass = document.querySelector(`.${s}`)
+    if (currentWordElement.firstChild.innerText === typeWordInput.value) { 
+        typingGame.score++;
+        letterSpanClass.classList.toggle('correct')
+        return true
+    } else {
+            letterSpanClass.classList.toggle('wrong')
+            messageElement.innerText = 'WRONG'
+            nextWord()
+            return false
+        }
+}
 
 function nextWord() {
-    matchWord();
     typeWordInput.value = '';
     scoreElement.innerText = typingGame.score;
     typingGame.round++;
     checkEndGame();
-    addTime()
-    // setHighScore()
+    addTime();
+    console.log(document.querySelector(.0))
 }
 
 function resetGame() {
@@ -164,8 +173,17 @@ function resetGame() {
 function checkEndGame() {
     if (!typingGame.gamePlaying && typingGame.time === 0) {
         typeWordInput.removeEventListener('keypress', (e) => {if (e.key === 'Enter') {
-            nextWord();
+            if (e.key === 'Enter') {
+    
+                if (typingGame.gamePlaying && typingGame.time > 0) {
+                    removeWordSpan()
+                    nextWord();
+                    checkRound();
+                }
+            }
+        
         }})
+        btnStartElement.disabled = true;
     }
     setHighScore()
 }
@@ -179,13 +197,32 @@ function setHighScore() {
 
 btnStartElement.addEventListener('click', () => {
     startGame();
-    checkRound();
+    checkRound()
+    console.log(currentWordElement)
+    console.log(currentWordElement.firstChild.innerText)
+    console.log(currentWord);
+})
+
+let currentLetterIndex = 0
+
+typeWordInput.addEventListener('keyup', (e) => {
+    currentLetterIndex = e.target.value.length -1
+    if (currentWordElement.children[currentLetterIndex]) {
+       if (typeWordInput.value[currentLetterIndex] === currentWordElement.children[currentLetterIndex].innerText) {}
+    }
+    console.log(currentLetterIndex)
+    console.log()
+    // console.log(currentWordElement.children[0])
+    
+// for (let i = 0; i < currentWordElement.children.length; i++) {
+//      === 
+// }
 })
 
 typeWordInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-    
         if (typingGame.gamePlaying && typingGame.time > 0) {
+            removeWordSpan()
             nextWord();
             checkRound();
         }

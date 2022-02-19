@@ -1,3 +1,4 @@
+// class input visivel: form-control m-auto text-center
 //1. Um jogador
 //2. Jogo por tempo: 30s
 //3. Digitar as palavras que aparecem o mais rapido possivel
@@ -20,15 +21,16 @@ class Game {
         this.setTime;
     }
 
-    start(print) {
-        console.log('start')
+    start(print, end) {
+        console.log('inicio')
         this.setTime = setInterval(() => {
             if (this.time > 0) {
                 this.time-=1;
             } else if (time === 0){
                  this.gamePlaying = false;
+                 end();
             };
-            print()
+            print();
         }, 1000);
         this.gamePlaying = true;
     }
