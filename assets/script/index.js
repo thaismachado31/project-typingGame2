@@ -48,7 +48,6 @@ function printTime() {
 
 function startGame() {
     console.log('startGame')
-    typingGame.time = 30
     printTime()
     typingGame.start(printTime, checkEndGame);
     typingGame.round++;
@@ -60,7 +59,6 @@ function selectWord(words) {
     const randomSelection = Math.floor(Math.random()* (words.length));
     currentWord = words[randomSelection];
     words.splice(randomSelection, 1);
-    // currentWordElement.innerText = currentWord
     wordByLetter(currentWord)
 }
 
@@ -76,10 +74,6 @@ function wordByLetter(eachWord) {
 
 function removeWordSpan() {
     currentWordElement.innerHTML = ''
-    // let firstLetterSpan = currentWordElement.firstChild
-    // while (firstLetterSpan) {
-    //     currentWordElement.removeChild(firstLetterSpan)
-    // }
 }
 
 function addTime() {
@@ -125,30 +119,36 @@ function checkRound() {
     }; 
 }
 
-function matchWord() {
-    if (currentWordElement.innerText === typeWordInput.value) { 
-        typingGame.score++;
-        messageElement.innerText = ''
-        return true
+function checkLetters() {
+    if (typeWordInput.value[currentLetterIndex] === lettersSpan[currentLetterIndex].innerText) {
+        lettersSpan[currentLetterIndex].classList.add('correct')       
     } else {
-            messageElement.innerText = 'WRONG'
-            return false
+            lettersSpan[currentLetterIndex].classList.add('wrong')  
+        }
+    changeWord()
+}
+
+function changeWord() {
+    if (typingGame.gamePlaying && typingGame.time > 0) {
+        if (lettersSpan.length === typeWordInput.value.length) {
+            checkWrongLetters()
+            removeWordSpan()
+            nextWord();
+            checkRound();
+        }
+    }
+        if (typingGame.time === 0) {
+            btnStartElement.disabled = true
+            colorStrOverBtn()
         }
 }
 
-function matchLetter(s) {
-    let letterSpanClass = document.querySelector(`.${s}`)
-    if (currentWordElement.firstChild.innerText === typeWordInput.value) { 
-        typingGame.score++;
-        letterSpanClass.classList.toggle('correct')
-        return true
-    } else {
-            letterSpanClass.classList.toggle('wrong')
-            messageElement.innerText = 'WRONG'
-            nextWord()
-            return false
-        }
-}
+// function endGameBtn() {
+//     if (typingGame.time === 0) {
+//         btnStartElement.disabled = true
+//         colorStrOverBtn()
+//     }
+// }
 
 function nextWord() {
     typeWordInput.value = '';
@@ -156,33 +156,31 @@ function nextWord() {
     typingGame.round++;
     checkEndGame();
     addTime();
-    console.log(document.querySelector(.0))
 }
 
 function resetGame() {
     console.log('resetGame')
     typingGame.restart();
     typeWordInput.value = '';
+    messageElement.innerText = ''
     currentWordElement.innerText = '';
     scoreElement.innerText = typingGame.score;
     timeElement.innerText = typingGame.time;
     highScoreElement.innerText = localStorage.getItem('highscore')
 }
 
-
+function colorStrOverBtn() {
+    btnStartOverElement.classList.replace("btn-light","btn-secondary");
+    console.log(btnStartOverElement.classList)
+}
 function checkEndGame() {
     if (!typingGame.gamePlaying && typingGame.time === 0) {
-        typeWordInput.removeEventListener('keypress', (e) => {if (e.key === 'Enter') {
-            if (e.key === 'Enter') {
-    
-                if (typingGame.gamePlaying && typingGame.time > 0) {
-                    removeWordSpan()
-                    nextWord();
-                    checkRound();
-                }
+        typeWordInput.removeEventListener('keyup', (e) => {
+            currentLetterIndex = e.target.value.length -1
+            if (lettersSpan[currentLetterIndex]) {
+                checkLetters()
             }
-        
-        }})
+        })
         btnStartElement.disabled = true;
     }
     setHighScore()
@@ -191,45 +189,54 @@ function checkEndGame() {
 function setHighScore() { 
     if (typingGame.score > localStorage.getItem('highscore')) {
         localStorage.setItem('highscore', typingGame.score)
-    }
-    
+    } 
+}
+
+function checkWrongLetters() {
+    if (document.getElementsByClassName('wrong').length > 0) {
+        messageElement.innerText = 'WRONG';
+        return false;
+    } else {
+            typingGame.score++;
+            messageElement.innerText = '';
+            return true;
+        }
 }
 
 btnStartElement.addEventListener('click', () => {
     startGame();
     checkRound()
-    console.log(currentWordElement)
-    console.log(currentWordElement.firstChild.innerText)
-    console.log(currentWord);
 })
 
 let currentLetterIndex = 0
+let lettersSpan = currentWordElement.children
 
 typeWordInput.addEventListener('keyup', (e) => {
     currentLetterIndex = e.target.value.length -1
-    if (currentWordElement.children[currentLetterIndex]) {
-       if (typeWordInput.value[currentLetterIndex] === currentWordElement.children[currentLetterIndex].innerText) {}
+    if (lettersSpan[currentLetterIndex]) {
+        checkLetters()
     }
-    console.log(currentLetterIndex)
-    console.log()
-    // console.log(currentWordElement.children[0])
-    
-// for (let i = 0; i < currentWordElement.children.length; i++) {
-//      === 
-// }
 })
 
-typeWordInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        if (typingGame.gamePlaying && typingGame.time > 0) {
-            removeWordSpan()
-            nextWord();
-            checkRound();
-        }
-    }
-})
+// typeWordInput.addEventListener('keyup', (e) => {
+//     currentLetterIndex = e.target.value.length -1
+//     if (currentWordElement.children[currentLetterIndex]) {
+//        if (typeWordInput.value[currentLetterIndex] === currentWordElement.children[currentLetterIndex].innerText) {
+//             currentWordElement.children[currentLetterIndex].classList.add('correct')       
+//         } else {
+//                 currentWordElement.children[currentLetterIndex].classList.add('wrong')  
+//             }
+//         if (currentWordElement.children.length === e.target.value.length) {
+//             if (typingGame.gamePlaying && typingGame.time > 0) {
+//                 checkWrongLetters()
+//                 removeWordSpan()
+//                 nextWord();
+//                 checkRound();
+//             }
+//         }
+//     }
+// })
 
 btnStartOverElement.addEventListener('click', () => { 
-    // window.location.reload();
     resetGame()
 })
