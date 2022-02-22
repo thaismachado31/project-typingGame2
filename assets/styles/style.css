@@ -3,6 +3,12 @@ body {
     font-family: 'Martel', serif !important;
 }
 
+h1 {
+    font-size: 3em;
+    font-weight: 600;
+}
+
+
 .correct {
     color:green;
 }
@@ -12,10 +18,15 @@ body {
 }
 
 h2 {
-    font: size 4em;
-    font-weight: bolder;
+    font-size: 56px;
+    font-weight: bold;
 }
 
 footer {
     font-size: small;
+}
+
+input {
+    background-color: rgba(0,0,0,0) !important;
+    border: none !important;
 }
