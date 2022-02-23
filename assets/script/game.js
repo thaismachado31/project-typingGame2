@@ -13,14 +13,14 @@
 
 class Game {
     constructor() {
-        this.time = 10;
+        this.time = 30;
         this.score = 0;
         this.round = 0;
         this.gamePlaying;
         this.setTime;
     }
 
-    start(print, end) {
+    start(print, end, last) {
         this.setTime = setInterval(() => {
             if (this.time > 0) {
                 this.time-=1;
@@ -28,6 +28,7 @@ class Game {
                  this.gamePlaying = false;
                  end();
             };
+            last()
             print();
         }, 1000);
         this.gamePlaying = true;

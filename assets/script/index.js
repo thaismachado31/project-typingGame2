@@ -13,7 +13,7 @@ const wordList = ['abs','act', 'add', 'age', 'air', 'all', 'alt', 'and', 'ant', 
 'adult', 'agent', 'apple', 'award', 'birth', 'block', 'blood', 'board', 'brain', 'bread', 'brown', 'chain', 'chair', 'chest', 'child', 'class', 'cream', 'cover', 'coach', 'cross', 'cycle', 'dance', 'depth', 'doubt', 'draft', 'drama', 'dream', 'dress', 'drink', 'drive', 'earth', 'error', 'entry', 'event', 'faith', 'fault', 'fight', 'final', 'floor', 'frame', 'front', 'fruit', 'glass', 'green', 'group', 'guide', 'heart', 'horse', 'hotel', 'image', 'index', 'input', 'issue', 'judge', 'knife', 'layer', 'limit', 'level', 'light', 'lunch', 'metal', 'model', 'month', 'music', 'might', 'noise', 'north', 'nurse','order', 'other', 'owner', 'paper', 'party', 'peace', 'pilot', 'pitch', 'plane', 'plant', 'power', 'prize', 'proof', 'queen', 'right', 'river', 'round', 'scope', 'score', 'sense', 'shape', 'sheet', 'share', 'skirt', 'shock', 'sleep', 'skill', 'smile', 'south', 'sport', 'staff', 'stage', 'stock', 'stone', 'study', 'stuff', 'style', 'sugar', 'table', 'taste', 'theme', 'thing', 'title', 'total', 'touch', 'tower', 'track', 'train', 'trial', 'trust', 'union', 'unity', 'value', 'video', 'visit', 'watch', 'water', 'white', 'woman', 'world', 'youth',
 'abroad', 'access', 'accept', 'across', 'action', 'advice', 'affect', 'afford', 'afraid', 'always', 'almost', 'animal', 'amount', 'answer', 'anyone', 'anyway', 'appeal', 'around', 'arrive', 'artist', 'aspect', 'attack', 'attend', 'author', 'beauty', 'battle', 'before', 'behind', 'belief', 'better', 'beyond', 'bottle', 'budget', 'button', 'camera', 'career', 'castle', 'casual', 'center', 'change', 'choice', 'circle', 'column', 'common', 'coffee', 'corner', 'couple', 'credit', 'course', 'custom', 'danger', 'decade', 'defend', 'degree', 'depend', 'desert', 'device', 'detail', 'dinner', 'double', 'driver', 'editor', 'effect', 'empire', 'energy', 'engine', 'ensure', 'escape', 'ethnic', 'exceed', 'except', 'excess', 'export', 'fabric', 'factor', 'family', 'famous', 'father', 'female', 'finger', 'finish', 'flight', 'follow', 'forest', 'friend', 'format', 'future', 'garden', 'gender', 'global', 'ground', 'growth', 'guilty', 'handle', 'health', 'height', 'honest', 'impact', 'import', 'indeed', 'inside', 'invest', 'island', 'junior', 'latter', 'launch', 'lawyer', 'league', 'legacy', 'length', 'lesson', 'letter', 'liquid', 'listen', 'little', 'luxury', 'manner', 'manual', 'market', 'medium', 'matter', 'master', 'member', 'memory', 'method', 'middle', 'minute', 'mirror', 'mobile', 'modern', 'moment', 'museum', 'nation', 'nature', 'nobody', 'normal', 'number', 'object', 'office', 'online', 'option', 'orange', 'parent', 'people', 'person', 'phrase', 'planet', 'player', 'please', 'pocket', 'pretty', 'public', 'really', 'random', 'rather', 'reason', 'record', 'reduce', 'region', 'remote', 'repeat', 'return', 'review', 'reward', 'salary', 'sample', 'scheme', 'screen', 'school', 'second', 'search', 'select', 'series', 'settle', 'signal', 'silent', 'silver', 'simple', 'single', 'status', 'square', 'string', 'strong', 'submit', 'summer', 'switch', 'symbol', 'talent', 'target', 'theory', 'ticket', 'tissue', 'travel', 'unique', 'update', 'useful', 'visual', 'volume', 'wealth', 'weight', 'winner', 'winter', 'wonder', 'writer', 'yellow',
 'ability', 'absence', 'account', 'address', 'airline', 'airport', 'alcohol', 'already', 'analyst', 'anxious', 'arrival', 'article', 'attract', 'average', 'balance', 'battery', 'believe', 'benefit', 'between', 'billion', 'brother', 'capital', 'captain', 'caption', 'careful', 'ceiling', 'century', 'chapter', 'charity', 'channel', 'chicken', 'classic', 'comment', 'complex', 'connect', 'concert', 'control', 'correct', 'crystal', 'culture', 'current', 'decline', 'default', 'deliver', 'destroy', 'desktop', 'diamond', 'digital', 'discuss', 'display', 'distant', 'economy', 'element', 'example', 'exhibit', 'explain',  'express', 'factory', 'fashion', 'feeling', 'fiction', 'finance', 'fitness', 'foreign', 'forever', 'fortune', 'forward', 'freedom', 'gallery', 'genetic', 'healthy', 'helpful', 'history', 'highway', 'holiday', 'illegal', 'imagine', 'initial', 'insight', 'install', 'instant', 'intense', 'journey', 'justice', 'kingdom', 'kitchen', 'liberty', 'library', 'loyalty', 'machine', 'meeting', 'million', 'mission', 'mixture', 'morning', 'mystery', 'natural', 'neither', 'nervous', 'network', 'nothing', 'nuclear', 'obvious', 'opinion', 'outlook', 'outside', 'overall', 'package', 'parking', 'passion', 'patient', 'pattern', 'picture', 'popular', 'plastic', 'premium', 'present', 'printer', 'promise', 'product', 'program', 'profile', 'privacy', 'protect', 'publish', 'quality', 'railway', 'reflect', 'receive', 'replace', 'respect', 'routine', 'science', 'serious', 'setting', 'silence', 'similar', 'society', 'special', 'station', 'stretch', 'someone', 'strange', 'student', 'subject', 'support', 'survive', 'surface', 'teacher', 'theater', 'therapy', 'totally', 'traffic', 'trouble', 'typical', 'uniform', 'upgrade', 'variety', 'vehicle', 'version', 'victory', 'village', 'virtual', 'visible', 'weather', 'website', 'wedding', 'welcome', 'weekend', 'western', 'witness',
-'abstract', 'accident', 'activity', 'actually', 'alliance', 'analysis', 'anything', 'anywhere', 'argument', 'approach', 'approval', 'athletic', 'bachelor', 'baseball', 'birthday', 'building', 'business', 'calendar', 'campaign', 'capacity', 'category', 'caremony', 'champion', 'children', 'clothing', 'colorful', 'complete', 'computer', 'continue', 'contrast','creative', 'cultural', 'customer', 'database', 'daylight', 'deadline', 'decision', 'delicate', 'delivery', 'describe', 'dialogue', 'discount', 'dramatic', 'distinct', 'electric', 'employee', 'engineer', 'evaluate', 'everyday', 'everyone', 'exposure', 'exercise', 'exchange', 'explicit', 'external', 'familiar', 'feedback', 'festival', 'flexible', 'football', 'fraction', 'function', 'graphics', 'graduate', 'grateful', 'hardware', 'heritage', 'homepage', 'hospital', 'humanity', 'identity', 'industry', 'innocent', 'interest', 'keyboard', 'language', 'lifetime', 'laughter', 'location', 'magazine', 'magnetic', 'marriage', 'material', 'medicine', 'memorial', 'midnight', 'mobility', 'mountain', 'movement', 'notebook', 'official', 'occasion', 'operator', 'optimism', 'optional', 'ordinary', 'patience', 'personal', 'platform', 'pleasure', 'portrait', 'positive', 'possible', 'powerful', 'pregnant', 'presence', 'princess', 'priority', 'property', 'proposal', 'purchase', 'question', 'religion', 'research', 'resident', 'romantic', 'schedule', 'security', 'sequence', 'shoulder', 'slightly', 'software', 'solution', 'specific', 'straight', 'strategy', 'surprise', 'symbolic', 'takeover', 'terrible', 'together', 'tomorrow', 'triangle', 'tropical', 'umbrella', 'universe', 'weakness', 'wireless', 'workshop', 'yourself',
+'abstract', 'accident', 'activity', 'actually', 'alliance', 'analysis', 'anything', 'anywhere', 'argument', 'approach', 'approval', 'athletic', 'bachelor', 'baseball', 'birthday', 'building', 'business', 'calendar', 'campaign', 'capacity', 'category', 'ceremony', 'champion', 'children', 'clothing', 'colorful', 'complete', 'computer', 'continue', 'contrast','creative', 'cultural', 'customer', 'database', 'daylight', 'deadline', 'decision', 'delicate', 'delivery', 'describe', 'dialogue', 'discount', 'dramatic', 'distinct', 'electric', 'employee', 'engineer', 'evaluate', 'everyday', 'everyone', 'exposure', 'exercise', 'exchange', 'explicit', 'external', 'familiar', 'feedback', 'festival', 'flexible', 'football', 'fraction', 'function', 'graphics', 'graduate', 'grateful', 'hardware', 'heritage', 'homepage', 'hospital', 'humanity', 'identity', 'industry', 'innocent', 'interest', 'keyboard', 'language', 'lifetime', 'laughter', 'location', 'magazine', 'magnetic', 'marriage', 'material', 'medicine', 'memorial', 'midnight', 'mobility', 'mountain', 'movement', 'notebook', 'official', 'occasion', 'operator', 'optimism', 'optional', 'ordinary', 'patience', 'personal', 'platform', 'pleasure', 'portrait', 'positive', 'possible', 'powerful', 'pregnant', 'presence', 'princess', 'priority', 'property', 'proposal', 'purchase', 'question', 'religion', 'research', 'resident', 'romantic', 'schedule', 'security', 'sequence', 'shoulder', 'slightly', 'software', 'solution', 'specific', 'straight', 'strategy', 'surprise', 'symbolic', 'takeover', 'terrible', 'together', 'tomorrow', 'triangle', 'tropical', 'umbrella', 'universe', 'weakness', 'wireless', 'workshop', 'yourself',
 'adjective', 'abundance', 'accessory', 'adaptable', 'addiction', 'actuality', 'adulthood', 'adventure', 'ambulance', 'alligator', 'affection', 'ambitious', 'architect', 'astronaut', 'attention', 'automatic', 'beautiful', 'beginning', 'blueberry', 'breakfast', 'brilliant', 'butterfly', 'chocolate', 'character', 'confusion', 'curiosity', 'celebrity', 'chemistry', 'christmas', 'challenge', 'childhood', 'celebrate', 'community', 'countdown', 'crocodile', 'dangerous', 'different', 'difficult', 'deception', 'delicious', 'direction', 'discovery', 'divergent', 'ecosystem', 'education', 'everybody', 'equipment', 'experiment', 'fairytale', 'fantastic', 'fragrance', 'fireworks', 'foundation', 'generosity', 'happiness', 'hamburger', 'halloween', 'honeymoon', 'hurricane', 'identical', 'important', 'irregular', 'imaginary', 'integrity', 'influence', 'invisible', 'jellyfish', 'knowledge', 'legendary', 'marketing', 'masculine', 'moustache', 'necessary', 'nightmare', 'nutrition', 'pollution', 'powerless', 'president', 'pineapple', 'packaging', 'parachute', 'recycling', 'scientist', 'something', 'structure', 'secretary', 'sanctuary', 'signature', 'sleepover', 'snowflake', 'tradition', 'territory', 'touchdown', 'undefined', 'underwear', 'vegetable', 'waterfall', 'wonderful',
 'appreciate', 'acceptable', 'adrenaline', 'admiration', 'atmosphere', 'attraction', 'attractive', 'basketball', 'blackboard', 'brightness', 'camouflage', 'compliment', 'conference', 'cheesecake', 'cleverness', 'conscience', 'confidence', 'conection', 'dedication', 'department', 'dicipline', 'dictionary','disturbing', 'everywhere', 'earthquake', 'effortless', 'everything', 'elementary', 'expression', 'excitement', 'excellence', 'experience', 'friendship', 'generation', 'girlfriend', 'graduation', 'gracefully', 'gymnastics', 'helicopter', 'heartbreak', 'hypothesis', 'homecoming', 'individual', 'innovation', 'instrument', 'invincible', 'laboratory', 'leadership', 'literature', 'loneliness', 'medication', 'meditation', 'microscope',  'motivation', 'motorcycle', 'narcissist', 'pedestrian', 'philosophy', 'photogenic', 'perfection', 'playground', 'perception', 'prediction', 'protection', 'production', 'prosperity', 'punishment', 'rainforest', 'reflection', 'remarkable', 'retirement', 'restaurant', 'revolution', 'revelation', 'separation', 'silhouette', 'strawberry', 'skateboard', 'statistics', 'sweetheart', 'speechless', 'technology', 'television', 'temptation', 'tenderness', 'toothbrush', 'understand', 'university', 'vocabulary', 'watermelon']
 
@@ -47,7 +47,7 @@ function printTime() {
 
 function startGame() {
     printTime()
-    typingGame.start(printTime, checkEndGame);
+    typingGame.start(printTime, checkEndGame, lastSeconds);
     typingGame.round++;
     typeWordInput.focus();
     return
@@ -85,6 +85,7 @@ function clearInputValue() {
 function addTime() {
     if (typingGame.score % 5 === 0) {
         typingGame.time += 5;
+        audioRound.play();
     };
     printTime()
 }
@@ -125,17 +126,18 @@ function checkRound() {
     }; 
 }
 
-// audioWrong = new Audio('../sounds/wrong-answer.mp3')
-// audioTime = new Audio('../sounds/ticking-timer.m4a')
-// audioType = new Audio('../sounds/type-key.wav')
+audioWrong = new Audio('./assets/sounds/error.wav')
+audioTime = new Audio('./assets/sounds/ticking-timer.m4a')
+audioType = new Audio('./assets/sounds/type-key.wav')
+audioRound = new Audio('./assets/sounds/alert-phase.wav')
 
 function checkLetters() {
     if (typeWordInput.value[currentLetterIndex] === lettersSpan[currentLetterIndex].innerText) {
         lettersSpan[currentLetterIndex].classList.add('correct')
-        // audioType.play()       
+        audioType.play()       
     } else {
             lettersSpan[currentLetterIndex].classList.add('wrong');
-            // audioWrong.play()
+            audioWrong.play()
             checkWrongLetters();
             removeWordSpan();
             nextWord();
@@ -172,7 +174,9 @@ function resetGame() {
     timeElement.innerText = typingGame.time;
     highScoreElement.innerText = localStorage.getItem('highscore');
     btnStartElement.disabled = false;
+    typeWordInput.disabled = false;
     normalStrOverBtn();
+    resetGameOver()
 }
 
 function colorStrOverBtn() {
@@ -187,6 +191,17 @@ function gameOver() {
     currentWordElement.classList.add('wrong');
     currentWordElement.innerText = 'game over'; 
 }
+
+function lastSeconds() {
+    if (typingGame.time <= 5) {
+        audioTime.play();
+    }
+}
+
+function resetGameOver() {
+    currentWordElement.classList.remove('wrong');
+    currentWordElement.innerText = ''; 
+}
 function checkEndGame() {
     btnStartElement.disabled = true;
     colorStrOverBtn();
@@ -194,6 +209,7 @@ function checkEndGame() {
         clearInputValue()
         typeWordInput.disabled = true;
         gameOver()
+        audioTime.pause()
         clearMessageEl()
         typeWordInput.removeEventListener('keyup', (e) => {
             currentLetterIndex = e.target.value.length -1
