@@ -1,1 +1,3 @@
-# project-typingGame2
+type away...
+
+https://docs.google.com/presentation/d/1_Wg6ZOvb1CKze8xM2d-A7K9qp3TFwIZTvImBlzUwIIo/edit?usp=sharing
