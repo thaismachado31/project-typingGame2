@@ -17,6 +17,19 @@ const wordList = ['abs','act', 'add', 'age', 'air', 'all', 'alt', 'and', 'ant', 
 'adjective', 'abundance', 'accessory', 'adaptable', 'addiction', 'actuality', 'adulthood', 'adventure', 'ambulance', 'alligator', 'affection', 'ambitious', 'architect', 'astronaut', 'attention', 'automatic', 'beautiful', 'beginning', 'blueberry', 'breakfast', 'brilliant', 'butterfly', 'chocolate', 'character', 'confusion', 'curiosity', 'celebrity', 'chemistry', 'christmas', 'challenge', 'childhood', 'celebrate', 'community', 'countdown', 'crocodile', 'dangerous', 'different', 'difficult', 'deception', 'delicious', 'direction', 'discovery', 'divergent', 'ecosystem', 'education', 'everybody', 'equipment', 'experiment', 'fairytale', 'fantastic', 'fragrance', 'fireworks', 'foundation', 'generosity', 'happiness', 'hamburger', 'halloween', 'honeymoon', 'hurricane', 'identical', 'important', 'irregular', 'imaginary', 'integrity', 'influence', 'invisible', 'jellyfish', 'knowledge', 'legendary', 'marketing', 'masculine', 'moustache', 'necessary', 'nightmare', 'nutrition', 'pollution', 'powerless', 'president', 'pineapple', 'packaging', 'parachute', 'recycling', 'scientist', 'something', 'structure', 'secretary', 'sanctuary', 'signature', 'sleepover', 'snowflake', 'tradition', 'territory', 'touchdown', 'undefined', 'underwear', 'vegetable', 'waterfall', 'wonderful',
 'appreciate', 'acceptable', 'adrenaline', 'admiration', 'atmosphere', 'attraction', 'attractive', 'basketball', 'blackboard', 'brightness', 'camouflage', 'compliment', 'conference', 'cheesecake', 'cleverness', 'conscience', 'confidence', 'conection', 'dedication', 'department', 'dicipline', 'dictionary','disturbing', 'everywhere', 'earthquake', 'effortless', 'everything', 'elementary', 'expression', 'excitement', 'excellence', 'experience', 'friendship', 'generation', 'girlfriend', 'graduation', 'gracefully', 'gymnastics', 'helicopter', 'heartbreak', 'hypothesis', 'homecoming', 'individual', 'innovation', 'instrument', 'invincible', 'laboratory', 'leadership', 'literature', 'loneliness', 'medication', 'meditation', 'microscope',  'motivation', 'motorcycle', 'narcissist', 'pedestrian', 'philosophy', 'photogenic', 'perfection', 'playground', 'perception', 'prediction', 'protection', 'production', 'prosperity', 'punishment', 'rainforest', 'reflection', 'remarkable', 'retirement', 'restaurant', 'revolution', 'revelation', 'separation', 'silhouette', 'strawberry', 'skateboard', 'statistics', 'sweetheart', 'speechless', 'technology', 'television', 'temptation', 'tenderness', 'toothbrush', 'understand', 'university', 'vocabulary', 'watermelon']
 
+// function letterLength(numb) {
+//     wordList.filter(word => word.length === numb)
+// }
+
+// let word3Letters = letterLength(3);
+// let word4Letters = letterLength(4);
+// let word5Letters = letterLength(5);
+// let word6Letters = letterLength(6);
+// let word7Letters = letterLength(7);
+// let word8Letters = letterLength(8);
+// let word9Letters = letterLength(9);
+// let word10Letters = letterLength(10)
+
 let word3Letters = wordList.filter(word => word.length === 3);
 let word4Letters = wordList.filter(word => word.length === 4);
 let word5Letters = wordList.filter(word => word.length === 5);
@@ -57,15 +70,15 @@ function selectWord(words) {
     const randomSelection = Math.floor(Math.random()* (words.length));
     currentWord = words[randomSelection];
     words.splice(randomSelection, 1);
-    wordByLetter(currentWord)
+    wordByLetter(currentWord);
 }
 
 function wordByLetter(eachWord) {
-    const letters = currentWord.split('')
+    const letters = currentWord.split('');
     for (let i=0; i < letters.length; i++ ) {
-        let letterElement = letters[i]
-        let classSpan = i
-        newLetterSpan = `<span class="${classSpan}" >${letterElement}</span>`
+        let letterElement = letters[i];
+        let classSpan = i;
+        newLetterSpan = `<span class="${classSpan}" >${letterElement}</span>`;
         currentWordElement.insertAdjacentHTML('beforeend', newLetterSpan);
     }
 }
@@ -75,7 +88,7 @@ function removeWordSpan() {
 }
 
 function clearMessageEl() {
-    messageElement.innerText = ''
+    messageElement.innerText = '';
 }
 
 function clearInputValue() {
@@ -133,11 +146,11 @@ audioRound = new Audio('./assets/sounds/alert-phase.wav')
 
 function checkLetters() {
     if (typeWordInput.value[currentLetterIndex] === lettersSpan[currentLetterIndex].innerText) {
-        lettersSpan[currentLetterIndex].classList.add('correct')
-        audioType.play()       
+        lettersSpan[currentLetterIndex].classList.add('correct');
+        audioType.play();       
     } else {
             lettersSpan[currentLetterIndex].classList.add('wrong');
-            audioWrong.play()
+            audioWrong.play();
             checkWrongLetters();
             removeWordSpan();
             nextWord();
@@ -158,7 +171,7 @@ function changeWord() {
 }
 
 function nextWord() {
-    clearInputValue()
+    clearInputValue();
     scoreElement.innerText = typingGame.score;
     typingGame.round++;
     checkEndGame();
@@ -167,8 +180,8 @@ function nextWord() {
 
 function resetGame() {
     typingGame.restart();
-    clearInputValue()
-    clearMessageEl()
+    clearInputValue();
+    clearMessageEl();
     currentWordElement.innerText = '';
     scoreElement.innerText = typingGame.score;
     timeElement.innerText = typingGame.time;
@@ -176,7 +189,7 @@ function resetGame() {
     btnStartElement.disabled = false;
     typeWordInput.disabled = false;
     normalStrOverBtn();
-    resetGameOver()
+    resetGameOver();
 }
 
 function colorStrOverBtn() {
@@ -202,19 +215,20 @@ function resetGameOver() {
     currentWordElement.classList.remove('wrong');
     currentWordElement.innerText = ''; 
 }
+
 function checkEndGame() {
     btnStartElement.disabled = true;
     colorStrOverBtn();
     if (!typingGame.gamePlaying && typingGame.time == 0) {
-        clearInputValue()
+        clearInputValue();
         typeWordInput.disabled = true;
-        gameOver()
-        audioTime.pause()
-        clearMessageEl()
+        gameOver();
+        audioTime.pause();
+        clearMessageEl();
         typeWordInput.removeEventListener('keyup', (e) => {
-            currentLetterIndex = e.target.value.length -1
+            currentLetterIndex = e.target.value.length -1;
             if (lettersSpan[currentLetterIndex]) {
-                checkLetters()
+                checkLetters();
             }
         })
     }
@@ -240,7 +254,7 @@ function checkWrongLetters() {
 
 btnStartElement.addEventListener('click', () => {
     startGame();
-    checkRound()
+    checkRound();
 })
 
 let currentLetterIndex = 0
@@ -249,10 +263,10 @@ let lettersSpan = currentWordElement.children
 typeWordInput.addEventListener('keyup', (e) => {
     currentLetterIndex = e.target.value.length -1
     if (lettersSpan[currentLetterIndex]) {
-        checkLetters()
+        checkLetters();
     }
 })
 
 btnStartOverElement.addEventListener('click', () => { 
-    resetGame()
+    resetGame();
 })

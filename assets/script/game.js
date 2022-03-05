@@ -27,21 +27,20 @@ class Game {
             } else if (this.time === 0){
                  this.gamePlaying = false;
                  end();
-            };
-            last()
+                };
+            last();
             print();
         }, 1000);
         this.gamePlaying = true;
     }
 
 
-    restart () {
-        
+    restart () {  
         this.time = 30;
         this.round = 0;
         this.score = 0;
         this.gamePlaying = false;
-        clearInterval(this.setTime)
+        clearInterval(this.setTime);
     }
 
 }
